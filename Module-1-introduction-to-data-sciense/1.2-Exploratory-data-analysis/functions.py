@@ -78,7 +78,7 @@ def age_cat(years):
         return '70+'
 
 
-def bi_cat_countplot(df, column, hue_column):
+def bi_cat_count_plot(df: pd.DataFrame, column: str, hue_column: str):
     unique_hue_values = df[hue_column].unique()
     fig, axes = plt.subplots(nrows=1, ncols=2)
     fig.set_size_inches(14, 6)
@@ -105,18 +105,18 @@ def bi_cat_countplot(df, column, hue_column):
 
 
 def uni_cat_target_compare(df, column):
-    bi_cat_countplot(df, column, hue_column='TARGET')
+    bi_cat_count_plot(df, column, hue_column='TARGET')
 
 
-def bi_countplot_target(df0, df1, column, hue_column):
+def bi_count_plot_target(df0, df1, column, hue_column):
     pltname = 'Клієнт зі складнощами щодо платності'
     print(pltname.upper())
-    bi_cat_countplot(df1, column, hue_column)
+    bi_cat_count_plot(df1, column, hue_column)
     plt.show()
 
     pltname = 'Клієнти зі своєчасними платежами'
     print(pltname.upper())
-    bi_cat_countplot(df0, column, hue_column)
+    bi_cat_count_plot(df0, column, hue_column)
     plt.show()
 
 def outlier_range(dataset,column):
@@ -146,3 +146,12 @@ def dist_box(dataset, column):
       plt.title(pltname)
 
       plt.show()
+
+def kde_no_outliers(df0, df1, Max_value0, Max_value1, column):
+  plt.figure(figsize = (14,6))
+  sns.kdeplot(df1[df1[column] <= Max_value1][column],label = 'Payment difficulties')
+  sns.kdeplot(df0[df0[column] <= Max_value0][column],label = 'On-Time Payments')
+  plt.ticklabel_format(style='plain', axis='x')
+  plt.xticks(rotation = 45)
+  plt.legend()
+  plt.show()
