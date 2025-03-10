@@ -4,7 +4,6 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 import warnings
-
 warnings.filterwarnings("ignore")
 
 def drop_unnecessary_columns(df: pd.DataFrame, columns: list) -> pd.DataFrame:
