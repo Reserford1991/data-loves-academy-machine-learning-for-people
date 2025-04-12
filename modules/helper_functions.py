@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from pandas import DataFrame, Series
 from ydata_profiling import ProfileReport
 from typing import Tuple, Dict, List, Any
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, PolynomialFeatures, OneHotEncoder
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder
 from scipy.stats import shapiro
 import warnings
 warnings.filterwarnings("ignore")
