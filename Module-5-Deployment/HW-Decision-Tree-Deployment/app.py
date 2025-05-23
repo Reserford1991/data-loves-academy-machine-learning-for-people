@@ -5,12 +5,13 @@ import pandas as pd
 
 # Load model and preprocessors
 
-# model_data = joblib.load(
-#     "Module-5-Deployment/HW-Decision-Tree-Deployment/models/weather_model_dt.joblib"
-# )  # debug model path
+# debug model path
+model_data = joblib.load(
+    "Module-5-Deployment/HW-Decision-Tree-Deployment/models/weather_model_dt.joblib"
+)
 
 # streamlit model path
-model_data = joblib.load("models/weather_model_dt.joblib")
+# model_data = joblib.load("models/weather_model_dt.joblib")
 
 model = model_data['model']
 imputer = model_data['imputer']
